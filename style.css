@@ -1,0 +1,119 @@
+body {
+    background-size: cover;
+    background-color: #303430;
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+    margin: 0;
+    background-color: #d0d7e5;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-image: url(https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/1413683/Tn0zih8MoDv1ssXudTs4g.jpg);
+    color: rgb(0, 0, 0);
+    padding: 1rem;
+    text-align: center;
+    position: fixed;
+    position: sticky;
+    top: -40px;
+    z-index: 10;
+}
+
+nav a {
+    color: #4d4d4d;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 20px;
+    background-color: #b7c2c8;
+    border-radius: 6px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+section {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border-radius: 6px;
+}
+
+footer {
+    background: #181818;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    margin-top: auto;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.video-item {
+    background-color: #c7d3e0;
+    border-radius: 6px;
+}
+
+video {
+    margin-left: 30px;
+}
+
+h3 {
+    margin-left: 30px;
+}
+
+#game-board {
+    width: 300px;
+    height: 300px;
+    border: 2px solid #399adb;
+    position: relative;
+    background-color: #cbd1d3;
+    overflow: hidden;
+}
+
+.piece {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    cursor: grab;
+    border: 1px solid rgba(65, 65, 65, 0.5);
+
+
+    background-image: url('https://cont.ws/uploads/pic/2025/5/photo_2025-05-08_21-50-40.jpg');
+
+    background-size: 300px 300px;
+
+    user-select: none;
+}
+
+.piece:active {
+    cursor: grabbing;
+}
+
+.qr-code {
+    margin-left: 80px;
+}
+
+.text {
+    text-align: center;
+}
