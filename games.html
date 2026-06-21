@@ -49,223 +49,172 @@
             <a href="eng_about.html">EN</a>
         </nav>
     </header>
-    <section>
-        <section>
+ 
+       <section>
+
             <h2>Собери пазл, отгадай ребусы и реши кроссворд вместе с котом Матроскиным!</h2>
-            <p style="font-size: 18px;">Развлечения - одна из главных ключевых интересов в любом походе в музей!
+            <p style="font-size: 18px;">Развлечения - одна из главных ключевых интересов в любом походе в
+                музей!
                 Программа,
                 конечно, важная часть похода в музей, так же, как и отдых и интерактив!</p>
             <p style="font-size: 18px;">Что ждет маленьких исследователей?</p>
 
-            <p style="font-size: 18px;">✅ Инспекция роскоши: Поможем Матроскину найти самые дорогие сокровища усадьбы.
+            <p style="font-size: 18px;">✅ Инспекция роскоши: Поможем Матроскину найти самые дорогие
+                сокровища
+                усадьбы.
             </p>
-            <p style="font-size: 18px;">✅ Библиотечный квест: Решим и отгадаем загадку-ребус и поможем Матроскину!</p>
-
-
+            <p style="font-size: 18px;">✅ Библиотечный квест: Решим и отгадаем загадку-ребус и поможем
+                Матроскину!
+            </p>
             <table>
                 <tr>
                     <td>
-                        <div id="game-board">
-
-                            <div class="piece" id="p1" data-correct-x="0" data-correct-y="0"
-                                style="background-position: 0 0;"></div>
-                            <div class="piece" id="p2" data-correct-x="150" data-correct-y="0"
-                                style="background-position: -150px 0;"></div>
-                            <div class="piece" id="p3" data-correct-x="0" data-correct-y="150"
-                                style="background-position: 0 -150px;"></div>
-                            <div class="piece" id="p4" data-correct-x="150" data-correct-y="150"
-                                style="background-position: -150px -150px;"></div>
-                        </div>
-
-                        <button id="reset-btn">Перемешать заново</button>
-
-                        <script>
-                            const board = document.getElementById('game-board');
-                            const pieces = document.querySelectorAll('.piece');
-                            const resetBtn = document.getElementById('reset-btn');
-
-                            let activePiece = null;
-                            let offset = { x: 0, y: 0 };
 
 
-                            pieces.forEach(piece => {
 
-                                randomizePiece(piece);
-
-                                piece.addEventListener('mousedown', (e) => {
-                                    activePiece = piece;
-                                    offset.x = e.clientX - piece.offsetLeft;
-                                    offset.y = e.clientY - piece.offsetTop;
-                                    piece.style.zIndex = 1000;
-                                });
-                            });
-
-                            document.addEventListener('mousemove', (e) => {
-                                if (activePiece) {
-                                    let x = e.clientX - offset.x;
-                                    let y = e.clientY - offset.y;
-
-
-                                    if (x < 0) x = 0;
-                                    if (y < 0) y = 0;
-                                    if (x + activePiece.offsetWidth > board.offsetWidth) x = board.offsetWidth - activePiece.offsetWidth;
-                                    if (y + activePiece.offsetHeight > board.offsetHeight) y = board.offsetHeight - activePiece.offsetHeight;
-
-                                    activePiece.style.left = x + 'px';
-                                    activePiece.style.top = y + 'px';
-                                }
-                            });
-
-                            document.addEventListener('mouseup', () => {
-                                if (activePiece) {
-                                    checkSnap(activePiece);
-                                    activePiece.style.zIndex = 1;
-                                    activePiece = null;
-                                }
-                            });
-
-
-                            function checkSnap(piece) {
-                                const currentX = parseInt(piece.style.left);
-                                const currentY = parseInt(piece.style.top);
-                                const targetX = parseInt(piece.getAttribute('data-correct-x'));
-                                const targetY = parseInt(piece.getAttribute('data-correct-y'));
-
-
-                                if (Math.abs(currentX - targetX) < 30 && Math.abs(currentY - targetY) < 30) {
-                                    piece.style.left = targetX + 'px';
-                                    piece.style.top = targetY + 'px';
-                                    piece.style.boxShadow = 'none';
-                                    piece.style.border = 'none';
-                                    piece.style.pointerEvents = 'none';
-                                    checkWin();
-                                }
-                            }
-
-
-                            function checkWin() {
-                                const allSnapped = Array.from(pieces).every(p => p.style.pointerEvents === 'none');
-                                if (allSnapped) {
-                                    setTimeout(() => alert('Поздравляем! Пазл собран! 🎉'), 100);
-                                }
-                            }
-
-
-                            function randomizePiece(piece) {
-                                const maxX = board.offsetWidth - piece.offsetWidth;
-                                const maxY = board.offsetHeight - piece.offsetHeight;
-
-                                piece.style.left = Math.floor(Math.random() * maxX) + 'px';
-                                piece.style.top = Math.floor(Math.random() * maxY) + 'px';
-                                piece.style.boxShadow = '2px 2px 5px rgba(0,0,0,0.3)';
-                                piece.style.border = '1px solid rgba(255,255,255,0.3)';
-                                piece.style.pointerEvents = 'auto';
-                            }
-
-                            resetBtn.addEventListener('click', () => {
-                                pieces.forEach(piece => randomizePiece(piece));
-                            });
-
-                        </script>
-
-
+                        <iframe src="https://www.jigsawplanet.com/?rc=play&amp;pid=34c0f071840a&amp;view=iframe"
+                            style="width:400px; height:400px" frameborder="0" allowfullscreen></iframe>
                     </td>
                     <td>
-
-                        <img src="demrBUUmwPo25_YVfJ3rCJWnJK8ivUST32ceniItL5YK73QxouHfl5j-_NVSSmVx0psP3PEeD_KwjgRxJk59m8XR.jpg"
-                            width="500" alt="ребус-1">
                         <img src="WSZT-wexTFFA7ZbtI69_p3E7sl7ak4PR4nWzTbn_Wugee9UX_iiQaOiZtKgfNZ7L5_loDWLeLuJMiK8s8HWAb2pz.jpg"
-                            width="800" alt="ребус-2">
+                            style="width:700px" alt="ребус-2">
+                        <img src="https://sun9-28.userapi.com/s/v1/ig2/H2U1f2BCmL0zPWy6awsZJONqEC3I_2Uwaj0ISj5RZbbNzG648sIHbgKzlGH75aIKRJ3sCw9F3aPRGLftEimg--sZ.jpg?quality=95&as=32x7,48x10,72x15,108x23,160x34,240x50,360x76,480x101,540x113,640x134,720x151,905x190&from=bu&u=DiknxDKJVxAPCaxHvCRi7uj_gZ8LZ6Gngx7LYzdEr10&cs=905x0"
+                            style="width:700px" alt="ребус-2">
                     </td>
                 </tr>
             </table>
         </section>
 
         <section>
-            <img src="Ytfed0tlHIHZs4JokJPr2lXTgpZcnjCTYnhpcm_1UFTl5FG9HcAPS3CYLRhRRThRhM5EfSJ02pTNctBoJv6i89zt.jpg" width="500" alt="ребус-1">
-            <p style="font-size: 18px;">1. Группа богатых купцов, которые построили этот великолепный особняк в Тамбове?</p>
-            <p style="font-size: 18px;">2. Массивное осветительное устройство, которое Матроскин проверял на количество ярусов?</p>
-            <p style="font-size: 18px;">3. Хрупкий, дорогой материал, из которого сделаны изысканные сервизы в витринах?</p>
-            <p style="font-size: 18px;">4. Зеленая зона при усадьбе, где Матроскин планировал разбить огород?</p>
-            <p style="font-size: 18px;">5. Сложный узор на деревянной мебели, напоминающий кружево?</p>
-            <p style="font-size: 18px;">6. Общее название для старинных, ценных и редких вещей, хранящихся в музее?</p>
-            <p style="font-size: 18px;">7. Специальное помещение с книгами, где Матроскин искал «сокровища мудрости»?</p>
-            <p style="font-size: 18px;">8. Предмет, в котором Матроскин хотел проверить свою форму?</p>
-            <p style="font-size: 18px;">9. Сословие, к которому принадлежали владельцы усадьбы?</p>
-        </section>
+            <table>
+                <tr>
+                    <td>
+                        <iframe src="https://www.graycell.ru/onlinecross/cross389.html"
+                            style="width:700px; height:500px" frameborder="0" allowfullscreen></iframe>
+                    </td>
+                    <td>
+                        <img src="https://avatars.mds.yandex.net/i?id=a55af27d85d09e68141bfda40611faf9_l-5192549-images-thumbs&n=13"
+                            style="width:300px" alt="ребус-2">
+                    </td>
+                </tr>
+            </table>
+            <section>
 
-        <section>
+                <div class="intro">
+                    <p style="font-size: 24px; font-weight: bold; margin-top: 0;">Квест: «Инспекция роскоши»</p>
+                    <p style="font-size: 18px;"><strong>Интерактив для читателей:</strong></p>
+                    <p style="font-size: 18px;">
+                        Матроскин заглянул в блокнот и проворчал: «Так, если мы хотим жить в этой усадьбе, нам нужно
+                        знать, чем она так знаменита. Я слышал, тут сокровища повсюду! Но я в этих ваших
+                        "антиквариях" не смыслю. Ребята, помогите мне провести аудит: найдите самые дорогие и редкие
+                        вещи, чтобы я понимал, стоит ли нам здесь заводить хозяйство!»
+                    </p>
+                    <p style="font-size: 18px;"><strong>Инвентарь участника:</strong></p>
+                    <p style="font-size: 18px;">1. «Блокнот Инспектора» (лист бумаги с таблицей).</p>
+                    <p style="font-size: 18px;">2. «Лупа Искателя» (можно использовать бумажную или просто
+                        имитировать руками).</p>
+                </div>
 
-            <div class="intro">
-                <p style="font-size: 24px; font-weight: bold; margin-top: 0;">Квест: «Инспекция роскоши»</p>
-                <p style="font-size: 18px;"><strong>Интерактив для читателей:</strong></p>
-                <p style="font-size: 18px;">
-                    Матроскин заглянул в блокнот и проворчал: «Так, если мы хотим жить в этой усадьбе, нам нужно
-                    знать, чем она так знаменита. Я слышал, тут сокровища повсюду! Но я в этих ваших
-                    "антиквариях" не смыслю. Ребята, помогите мне провести аудит: найдите самые дорогие и редкие
-                    вещи, чтобы я понимал, стоит ли нам здесь заводить хозяйство!»
+                <h2>📍 Станция 1: «Световой удар» (Парадные залы / Люстры)</h2>
+                <p style="font-size: 18px;">Матроскин ищет то, что «светит ярче, чем глаз у Шарика».</p>
+                <p class="station-task">
+                    - <strong>Задание:</strong> Найдите самую массивную люстру в зале.<br>
+                    - <strong>Вопрос инспектора:</strong> «Сколько ярусов (уровней) у этой люстры?» или «Из чего
+                    сделаны её подвески (хрусталь или стекло)?»<br>
+                    - <strong>Цель:</strong> Понять ценность освещения в купеческом доме.<br>
+                    - <strong>Запись в блокнот:</strong> «Люстра — масштабная. Полировать долго, но блестит на все
+                    деньги!»
                 </p>
-                <p style="font-size: 18px;"><strong>Инвентарь участника:</strong></p>
-                <p style="font-size: 18px;">1. «Блокнот Инспектора» (лист бумаги с таблицей).</p>
-                <p style="font-size: 18px;">2. «Лупа Искателя» (можно использовать бумажную или просто
-                    имитировать руками).</p>
-            </div>
+                <img src="https://artglass.ch/uploads/gallery/58/_thumbs/824fc8eb1c800bd1340867218923e118.jpg"
+                    alt="Люстра в усадьбе">
 
-            <h2>📍 Станция 1: «Световой удар» (Парадные залы / Люстры)</h2>
-            <p style="font-size: 18px;">Матроскин ищет то, что «светит ярче, чем глаз у Шарика».</p>
-            <p class="station-task">
-                - <strong>Задание:</strong> Найдите самую массивную люстру в зале.<br>
-                - <strong>Вопрос инспектора:</strong> «Сколько ярусов (уровней) у этой люстры?» или «Из чего
-                сделаны её подвески (хрусталь или стекло)?»<br>
-                - <strong>Цель:</strong> Понять ценность освещения в купеческом доме.<br>
-                - <strong>Запись в блокнот:</strong> «Люстра — масштабная. Полировать долго, но блестит на все
-                деньги!»
-            </p>
-            <img src="https://artglass.ch/uploads/gallery/58/_thumbs/824fc8eb1c800bd1340867218923e118.jpg"
-                alt="Люстра в усадьбе">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="sketchfab-embed-wrapper"> <iframe title="Cat" frameborder="0" allowfullscreen
+                                    mozallowfullscreen="true" webkitallowfullscreen="true"
+                                    allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking
+                                    execution-while-out-of-viewport execution-while-not-rendered web-share
+                                    src="https://sketchfab.com/models/895ad67aa2404f39b2ecedc31df67b02/embed"> </iframe>
+                                <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a
+                                        href="https://sketchfab.com/3d-models/cat-895ad67aa2404f39b2ecedc31df67b02?utm_medium=embed&utm_campaign=share-popup&utm_content=895ad67aa2404f39b2ecedc31df67b02"
+                                        target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Cat
+                                    </a> by <a
+                                        href="https://sketchfab.com/Stephengury?utm_medium=embed&utm_campaign=share-popup&utm_content=895ad67aa2404f39b2ecedc31df67b02"
+                                        target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">
+                                        Stephengury </a> on <a
+                                        href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=895ad67aa2404f39b2ecedc31df67b02"
+                                        target="_blank" rel="nofollow"
+                                        style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="sketchfab-embed-wrapper"> <iframe title="Cows" frameborder="0" allowfullscreen
+                                    mozallowfullscreen="true" webkitallowfullscreen="true"
+                                    allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking
+                                    execution-while-out-of-viewport execution-while-not-rendered web-share
+                                    src="https://sketchfab.com/models/e2172f7c1b214b7f8060b313b4127e15/embed"> </iframe>
+                                <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a
+                                        href="https://sketchfab.com/3d-models/cows-e2172f7c1b214b7f8060b313b4127e15?utm_medium=embed&utm_campaign=share-popup&utm_content=e2172f7c1b214b7f8060b313b4127e15"
+                                        target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Cows
+                                    </a> by <a
+                                        href="https://sketchfab.com/edgardito?utm_medium=embed&utm_campaign=share-popup&utm_content=e2172f7c1b214b7f8060b313b4127e15"
+                                        target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Angel
+                                        Fuentes </a> on <a
+                                        href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=e2172f7c1b214b7f8060b313b4127e15"
+                                        target="_blank" rel="nofollow"
+                                        style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p>
+                            </div>
+                        </td>
+                        <td>
+                            <iframe width="300" height="150"
+                                src="https://www.tinkercad.com/embed/j3WrFa8L1W2?editbtn=1&simlab=1" frameborder="0"
+                                marginwidth="0" marginheight="0" scrolling="no"></iframe>
+                        </td>
+                    </tr>
+                </table>
 
-            <h2>📍 Станция 2: «Фарфоровый детектив» (Сервизы / Витрины)</h2>
-            <p style="font-size: 18px;">Матроскин ищет «самое хрупкое и самое дорогое».</p>
-            <p class="station-task">
-                - <strong>Задание:</strong> В витрине спрятан предмет с определенным узором (например, золотая
-                кайма или цветочный орнамент). Найдите его.<br>
-                - <strong>Загадка:</strong> «Белое, как снег, но не холодное. С цветами, но не в саду. На столе
-                стоит, на нас глядит».<br>
-                - <strong>Вопрос инспектора:</strong> «Какого цвета узор на самом красивом блюде?»<br>
-                - <strong>Запись в блокнот:</strong> «Посуда — высший класс. Одной лапой не потрогать, надо
-                очень аккуратно!»
-            </p>
-            <img src="https://prousadbi.ru/wp-content/uploads/2016/09/Muzey-usadba-Aseevyih-Tambov.jpg"
-                alt="Усадьба Асеевых">
+                <h2>📍 Станция 2: «Фарфоровый детектив» (Сервизы / Витрины)</h2>
+                <p style="font-size: 18px;">Матроскин ищет «самое хрупкое и самое дорогое».</p>
+                <p class="station-task">
+                    - <strong>Задание:</strong> В витрине спрятан предмет с определенным узором (например, золотая
+                    кайма или цветочный орнамент). Найдите его.<br>
+                    - <strong>Загадка:</strong> «Белое, как снег, но не холодное. С цветами, но не в саду. На столе
+                    стоит, на нас глядит».<br>
+                    - <strong>Вопрос инспектора:</strong> «Какого цвета узор на самом красивом блюде?»<br>
+                    - <strong>Запись в блокнот:</strong> «Посуда — высший класс. Одной лапой не потрогать, надо
+                    очень аккуратно!»
+                </p>
+                <img src="https://prousadbi.ru/wp-content/uploads/2016/09/Muzey-usadba-Aseevyih-Tambov.jpg"
+                    alt="Усадьба Асеевых">
 
-            <h2>📍 Станция 3: «Тайны резьбы» (Мебель / Деревянный декор)</h2>
-            <p style="font-size: 18px;">Матроскин ищет «дерево, которое превратилось в кружево».</p>
-            <p class="station-task">
-                - <strong>Задание:</strong> Найдите самый сложный предмет мебели (шкаф, кресло или стол).<br>
-                - <strong>Миссия:</strong> Найдите на нем «скрытый символ» — элемент резьбы, похожий на
-                животное, цветок или вензель.<br>
-                - <strong>Вопрос инспектора:</strong> «Сколько ножек у этого резного стола?» или «Что изображено
-                на спинке кресла?»<br>
-                - <strong>Запись в блокнот:</strong> «Дерево вырезано так, будто это не дерево, а застывшее
-                облако. Дорого, наверно!»
-            </p>
-            <img src="https://avatars.dzeninfra.ru/get-zen_doc/4449015/pub_6353eb77171942038c7438b3_63540b0e299d001c31ed1084/scale_1200"
-                alt="Интерьер усадьбы">
+                <h2>📍 Станция 3: «Тайны резьбы» (Мебель / Деревянный декор)</h2>
+                <p style="font-size: 18px;">Матроскин ищет «дерево, которое превратилось в кружево».</p>
+                <p class="station-task">
+                    - <strong>Задание:</strong> Найдите самый сложный предмет мебели (шкаф, кресло или стол).<br>
+                    - <strong>Миссия:</strong> Найдите на нем «скрытый символ» — элемент резьбы, похожий на
+                    животное, цветок или вензель.<br>
+                    - <strong>Вопрос инспектора:</strong> «Сколько ножек у этого резного стола?» или «Что изображено
+                    на спинке кресла?»<br>
+                    - <strong>Запись в блокнот:</strong> «Дерево вырезано так, будто это не дерево, а застывшее
+                    облако. Дорого, наверно!»
+                </p>
+                <img src="https://avatars.dzeninfra.ru/get-zen_doc/4449015/pub_6353eb77171942038c7438b3_63540b0e299d001c31ed1084/scale_1200"
+                    alt="Интерьер усадьбы">
 
-            <h2>📍 Станция 4: «Зеркальный лабиринт» (Зеркала / Оформление стен)</h2>
-            <p style="font-size: 18px;">Матроскин хочет проверить, не слишком ли он толстый для этой усадьбы.
-            </p>
-            <p class="station-task">
-                - <strong>Задание:</strong> Найдите самое большое зеркало в залах.<br>
-                - <strong>Миссия:</strong> Посмотрите в зеркало и найдите его раму. Опишите, что на ней
-                изображено (листья, узоры, золото).<br>
-                - <strong>Вопрос инспектора:</strong> «Какого цвета рама у самого большого зеркала?»<br>
-                - <strong>Запись в блокнот:</strong> «Зеркало — как в сказке! В нем сразу видно, сколько у нас
-                тут красоты и порядка!»
-            </p>
+                <h2>📍 Станция 4: «Зеркальный лабиринт» (Зеркала / Оформление стен)</h2>
+                <p style="font-size: 18px;">Матроскин хочет проверить, не слишком ли он толстый для этой усадьбы.
+                </p>
+                <p class="station-task">
+                    - <strong>Задание:</strong> Найдите самое большое зеркало в залах.<br>
+                    - <strong>Миссия:</strong> Посмотрите в зеркало и найдите его раму. Опишите, что на ней
+                    изображено (листья, узоры, золото).<br>
+                    - <strong>Вопрос инспектора:</strong> «Какого цвета рама у самого большого зеркала?»<br>
+                    - <strong>Запись в блокнот:</strong> «Зеркало — как в сказке! В нем сразу видно, сколько у нас
+                    тут красоты и порядка!»
+                </p>
 
-        </section>
-
+            </section>
 
 </body>
 
